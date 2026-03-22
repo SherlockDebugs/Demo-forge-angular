@@ -22,8 +22,9 @@ This release upgrades the workspace and library from **Angular 20.x** to **Angul
 
 ##### Library Peer Dependencies
 
-- `@angular/common` and `@angular/core` peer range updated from `>=20.0.0 < 22.0.0` to `>=21.0.0 < 23.0.0`.
-- **Downstream Tyler products must be on Angular 21+ to consume this version.**
+- `@angular/common` and `@angular/core` peer range updated from `>=20.0.0 < 22.0.0` to `>=20.0.0 < 23.0.0`.
+- Angular 20 (current-1) remains supported per the library's version support policy.
+- **Downstream Tyler products on Angular 20 or 21 can consume this version.**
 
 ##### tsconfig Changes
 
