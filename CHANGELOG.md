@@ -1,3 +1,54 @@
+# v8.0.0 (Sat Mar 22 2026)
+
+#### 💥 Breaking Change
+
+- chore(deps): upgrade from Angular 20.x to Angular 21.x
+
+#### Migration Notes
+
+This release upgrades the workspace and library from **Angular 20.x** to **Angular 21.x** (latest stable). Below is a summary of changes and downstream impacts for Tyler products.
+
+##### Dependency Changes
+
+| Package | Previous | New |
+| :--- | :--- | :--- |
+| `@angular/*` (runtime) | `^20.3.15` | `^21.2.5` |
+| `@angular/build` | `^20.3.13` | `^21.2.3` |
+| `@angular/cli` | `^20.3.13` | `^21.2.3` |
+| `@angular/compiler-cli` | `^20.3.15` | `^21.2.5` |
+| `ng-packagr` | `^20.3.2` | `^21.2.1` |
+| `typescript` | `~5.8.3` | `~5.9.3` |
+| `zone.js` | `~0.15.1` | `~0.16.1` |
+
+##### Library Peer Dependencies
+
+- `@angular/common` and `@angular/core` peer range updated from `>=20.0.0 < 22.0.0` to `>=20.0.0 < 23.0.0`.
+- Angular 20 (current-1) remains supported per the library's version support policy.
+- **Downstream Tyler products on Angular 20 or 21 can consume this version.**
+
+##### tsconfig Changes
+
+- `module` updated from `es2020` to `es2022`.
+- `lib` updated from `["es2020", "dom"]` to `["es2022", "dom"]`.
+
+##### angular.json Changes
+
+- Demo app production budgets increased to accommodate Forge library bundle size (`initial: 2mb warn / 3mb error`, `anyComponentStyle: 10kb warn / 12kb error`).
+
+##### Angular 21 Ecosystem Notes (Downstream Impact)
+
+- **Zoneless by default**: Angular 21 makes zoneless change detection the default for _new_ projects. Existing apps are unaffected but should plan migration. `zone.js` 0.16.x remains supported.
+- **Karma deprecated**: Angular 21 officially replaces Karma with Vitest as the default test runner. Existing Karma setups continue to work but teams should plan to migrate (`ng generate @angular/core:karma-to-vitest`).
+- **HttpClient auto-provided**: `HttpClient` is now available in the root injector by default. Explicit `provideHttpClient()` calls are only needed when passing configuration (e.g., `withInterceptors`).
+- **TypeScript 5.9 required**: Angular 21 requires TypeScript `>=5.9 <6.0`. Downstream products must upgrade TypeScript accordingly.
+- **Signal Forms (experimental)**: Angular 21 introduces experimental signal-based forms. No impact on existing `ReactiveFormsModule` usage.
+
+##### Proxy Components
+
+- Proxies regenerated via `forge-schematics` with no changes detected — all existing proxy bindings remain compatible.
+
+---
+
 # v7.2.0 (Fri Feb 20 2026)
 
 :tada: This release contains work from a new contributor! :tada:
