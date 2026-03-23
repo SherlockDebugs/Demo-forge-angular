@@ -1,3 +1,55 @@
+# v8.0.0 (Sun Mar 23 2026)
+
+#### 💥 Breaking Change
+
+- chore(deps): upgrade from Angular 20.x to Angular 21.x
+
+#### Migration Notes
+
+This release upgrades the workspace and library from **Angular 20.3.x** to **Angular 21.2.x**.
+
+##### Package Changes
+
+| Package | Old Version | New Version |
+| --- | --- | --- |
+| `@angular/core` (and all `@angular/*` runtime packages) | `^20.3.15` | `^21.2.5` |
+| `@angular/build` | `^20.3.13` | `^21.2.3` |
+| `@angular/cli` | `^20.3.13` | `^21.2.3` |
+| `@angular/compiler-cli` | `^20.3.15` | `^21.2.5` |
+| `ng-packagr` | `^20.3.2` | `^21.2.1` |
+| `typescript` | `~5.8.3` | `~5.9.3` |
+| `zone.js` | `~0.15.1` | `~0.16.1` |
+
+##### Library Peer Dependencies
+
+- `@angular/common` and `@angular/core` peer range updated from `>=20.0.0 < 22.0.0` to `>=21.0.0 < 23.0.0`.
+
+##### TypeScript / tsconfig Changes
+
+- `module` updated from `es2020` to `es2022`.
+- `lib` updated from `["es2020", "dom"]` to `["es2022", "dom"]`.
+
+##### angular.json Changes
+
+- Demo app bundle budgets relaxed to accommodate updated Angular 21 runtime size (`initial` max error raised from `1mb` to `3mb`, `anyComponentStyle` max error raised from `4kb` to `12kb`).
+
+##### Key Angular 21 Changes Affecting This Library
+
+- **Zoneless by default**: Angular 21 makes zoneless change detection the default for _new_ applications. Existing apps (including this demo) continue to work with `zone.js`, but downstream teams should plan for zoneless migration.
+- **Vitest replaces Karma**: Angular 21 defaults to Vitest for `ng test`. The existing Karma config is preserved for now, but teams should plan migration using `ng generate @angular/core:karma-to-vitest`.
+- **TypeScript 5.9 required**: Angular 21 requires TypeScript `>=5.9 <6.0`. Downstream Tyler products must ensure their TypeScript version is compatible.
+- **zone.js 0.16.x**: The `zone.js` peer dependency in `@angular/core` now expects `~0.15.0 || ~0.16.0`.
+
+##### Downstream Impacts for Tyler Products
+
+- **All Tyler Angular apps** consuming `@tylertech/forge-angular` must upgrade to Angular 21.x and TypeScript 5.9+ before adopting this version.
+- **`zone.js`** must be updated to `~0.16.x` (or `~0.15.x` if still supported but deprecated).
+- Applications using **Karma** for testing should begin planning migration to **Vitest** as Karma support is being phased out.
+- No changes to the generated proxy components — all existing Forge component bindings remain compatible.
+- The `@tylertech/forge` peer dependency remains `^3.13.1` (unchanged).
+
+---
+
 # v7.2.0 (Fri Feb 20 2026)
 
 :tada: This release contains work from a new contributor! :tada:
