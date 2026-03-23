@@ -22,7 +22,7 @@ This release upgrades the workspace and library from **Angular 20.3.x** to **Ang
 
 ##### Library Peer Dependencies
 
-- `@angular/common` and `@angular/core` peer range updated from `>=20.0.0 < 22.0.0` to `>=21.0.0 < 23.0.0`.
+- `@angular/common` and `@angular/core` peer range updated from `>=20.0.0 < 22.0.0` to `>=20.0.0 < 23.0.0` (maintains Angular 20 current-1 support per CONTRIBUTING.md policy).
 
 ##### TypeScript / tsconfig Changes
 
