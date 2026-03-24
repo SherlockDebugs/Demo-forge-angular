@@ -1,3 +1,34 @@
+# v8.0.0 (Mon Mar 24 2026)
+
+#### 💥 Breaking Change
+
+- chore(deps): upgrade Angular 20.x to Angular 21.x (21.2.5)
+
+#### Migration Notes
+
+**Angular Framework Upgrade: 20.x → 21.x**
+
+This is a major version bump due to the Angular major version change. The following updates were made:
+
+- **Angular packages**: All `@angular/*` dependencies updated from `^20.3.15` to `^21.2.5`
+- **Angular CLI & Build**: `@angular/build` and `@angular/cli` updated from `^20.3.13` to `^21.2.3`
+- **ng-packagr**: Updated from `^20.3.2` to `^21.2.1`
+- **TypeScript**: Updated from `~5.8.3` to `~5.9.3` (Angular 21 requires TypeScript >=5.9 <6.0)
+- **tsconfig.json**: Updated `module` from `es2020` to `es2022` and `lib` from `es2020` to `es2022`
+- **Library peer dependencies**: Updated `@angular/common` and `@angular/core` peer range from `>=20.0.0 < 22.0.0` to `>=20.0.0 < 23.0.0` (maintains current-1 Angular 20 support per CONTRIBUTING.md policy)
+- **Demo app budgets**: Relaxed `angular.json` bundle budgets for the demo application to accommodate Angular 21 bundle size changes
+- **Proxy components**: Regenerated via `@tylertech/forge-schematics` — no changes required
+
+#### Downstream Impact for Tyler Products
+
+- Tyler products consuming `@tylertech/forge-angular` must upgrade to **Angular 21.x** and **TypeScript 5.9+** before adopting this version.
+- Angular 21 makes **zoneless change detection** the default for new projects. Existing projects are not affected, but teams should plan migration.
+- Angular 21 replaces **Karma with Vitest** as the default test runner for new projects. Existing Karma configs continue to work but are considered legacy.
+- `HttpClient` is now provided in the root injector by default. Explicit `provideHttpClient()` calls can be removed unless interceptor configuration is needed.
+- No breaking changes to the Forge proxy component API surface itself.
+
+---
+
 # v7.2.0 (Fri Feb 20 2026)
 
 :tada: This release contains work from a new contributor! :tada:
