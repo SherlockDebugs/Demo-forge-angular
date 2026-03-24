@@ -15,7 +15,7 @@ This is a major version bump due to the Angular major version change. The follow
 - **ng-packagr**: Updated from `^20.3.2` to `^21.2.1`
 - **TypeScript**: Updated from `~5.8.3` to `~5.9.3` (Angular 21 requires TypeScript >=5.9 <6.0)
 - **tsconfig.json**: Updated `module` from `es2020` to `es2022` and `lib` from `es2020` to `es2022`
-- **Library peer dependencies**: Updated `@angular/common` and `@angular/core` peer range from `>=20.0.0 < 22.0.0` to `>=21.0.0 < 23.0.0`
+- **Library peer dependencies**: Updated `@angular/common` and `@angular/core` peer range from `>=20.0.0 < 22.0.0` to `>=20.0.0 < 23.0.0` (maintains current-1 Angular 20 support per CONTRIBUTING.md policy)
 - **Demo app budgets**: Relaxed `angular.json` bundle budgets for the demo application to accommodate Angular 21 bundle size changes
 - **Proxy components**: Regenerated via `@tylertech/forge-schematics` — no changes required
 
