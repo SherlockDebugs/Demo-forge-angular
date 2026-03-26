@@ -1,3 +1,49 @@
+# v8.0.0 (Wed Mar 26 2026)
+
+#### 💥 Breaking Change
+
+- chore(deps): upgrade from Angular 20.x to Angular 21.x (latest stable)
+
+#### Migration Notes
+
+##### Angular Framework Upgrade
+
+| Package | Previous | Current |
+|---|---|---|
+| `@angular/core` (and all `@angular/*` runtime packages) | `^20.3.15` | `^21.2.6` |
+| `@angular/cli` | `^20.3.13` | `^21.2.4` |
+| `@angular/build` | `^20.3.13` | `^21.2.4` |
+| `@angular/compiler-cli` | `^20.3.15` | `^21.2.6` |
+| `ng-packagr` | `^20.3.2` | `^21.2.1` |
+| `typescript` | `~5.8.3` | `~5.9.3` |
+| `zone.js` | `~0.15.1` | `~0.16.1` |
+
+##### tsconfig Changes
+
+- `module` updated from `es2020` to `es2022`
+- `lib` updated from `["es2020", "dom"]` to `["es2022", "dom"]`
+
+##### Library Peer Dependencies
+
+- `@angular/common` peer dependency updated to `>=21.0.0 < 23.0.0`
+- `@angular/core` peer dependency updated to `>=21.0.0 < 23.0.0`
+- **Consumers must be on Angular 21+** to use this version of `@tylertech/forge-angular`
+
+##### Demo App Build Budgets
+
+- Initial bundle budget raised to `2mb` warning / `3mb` error (from `500kb` / `1mb`)
+- Component style budget raised to `10kb` warning / `12kb` error (from `2kb` / `4kb`)
+
+##### Downstream Impact for Tyler Products
+
+- All Tyler products consuming `@tylertech/forge-angular` must upgrade to **Angular 21.x** and **TypeScript 5.9+** before adopting this version
+- `zone.js` must be upgraded to `~0.16.x` (Angular 21 default); teams exploring **zoneless mode** (now the Angular 21 default for new projects) should test thoroughly
+- Angular 21 makes **Vitest** the default test runner for new projects; existing Karma setups still work but are deprecated — teams should plan migration
+- `HttpClient` is now auto-provided in the root injector in Angular 21; explicit `provideHttpClient()` calls can be removed unless custom config (`withInterceptors`, `withFetch`) is used
+- Sass `@import` rules are deprecated in favor of `@use` — plan to migrate stylesheets before Dart Sass 3.0
+
+---
+
 # v7.2.0 (Fri Feb 20 2026)
 
 :tada: This release contains work from a new contributor! :tada:
