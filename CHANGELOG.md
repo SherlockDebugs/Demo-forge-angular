@@ -36,7 +36,7 @@
 
 ##### Downstream Impact for Tyler Products
 
-- All Tyler products consuming `@tylertech/forge-angular` must upgrade to **Angular 21.x** and **TypeScript 5.9+** before adopting this version
+- Tyler products consuming `@tylertech/forge-angular` should upgrade to **Angular 21.x** and **TypeScript 5.9+** for best compatibility, though **Angular 20.x** remains supported per the current / current-1 policy
 - `zone.js` must be upgraded to `~0.16.x` (Angular 21 default); teams exploring **zoneless mode** (now the Angular 21 default for new projects) should test thoroughly
 - Angular 21 makes **Vitest** the default test runner for new projects; existing Karma setups still work but are deprecated — teams should plan migration
 - `HttpClient` is now auto-provided in the root injector in Angular 21; explicit `provideHttpClient()` calls can be removed unless custom config (`withInterceptors`, `withFetch`) is used
