@@ -25,9 +25,9 @@
 
 ##### Library Peer Dependencies
 
-- `@angular/common` peer dependency updated to `>=21.0.0 < 23.0.0`
-- `@angular/core` peer dependency updated to `>=21.0.0 < 23.0.0`
-- **Consumers must be on Angular 21+** to use this version of `@tylertech/forge-angular`
+- `@angular/common` peer dependency updated to `>=20.0.0 < 23.0.0`
+- `@angular/core` peer dependency updated to `>=20.0.0 < 23.0.0`
+- Maintains **current / current-1** Angular support policy (Angular 20 and 21 both supported)
 
 ##### Demo App Build Budgets
 
